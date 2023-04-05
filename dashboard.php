@@ -1,16 +1,11 @@
 <?php
-$valor_temperatura = file_get_contents("api/files/temperatura/valor.txt");
-$hora_temperatura = file_get_contents("api/files/temperatura/hora.txt");
-$nome_temperatura = file_get_contents("api/files/temperatura/nome.txt");
-
-/*echo ($nome_temperatura.": ".$valor_temperatura."ºC em ".$hora_temperatura)
- */
-?>
+include 'variaveis_sensores_atuadores/variaveis.php'
+    ?>
 
 <?php
 session_start();
 if (!isset($_SESSION['credenciais'])) {
-    header("refresh:5;url=index.php");
+    header("refresh:5;url=dashboard.php");
     die("Acesso Restrito");
 }
 ?>
@@ -41,7 +36,7 @@ if (!isset($_SESSION['credenciais'])) {
                     <a class="nav-link" href="#">Histórico</a>
                 </li>
             </ul>
-            <a class="btn btn-sm btn-outline-secondary" href="http://localhost:8080/rti/logout.php"
+            <a class="btn btn-sm btn-outline-secondary" href="http://localhost:8080/Projeto-RTI/logout.php"
                 type="button">Logout</a>
         </div>
 
@@ -50,25 +45,27 @@ if (!isset($_SESSION['credenciais'])) {
     <div class="container" style="padding-top: 30px;">
         <div class="card">
             <div class="card-body">
-                <img class="float-end" src="images/imagensdashboard/estg.png" alt="estg" width="300">
+                <img class="float-end" src="images/img_dashboard/estg.png" alt="estg" width="300">
                 <h1>Servidor IoT</h1>
                 <p>Bem Vindo <b>UTILIZADOR XPTO</b></p>
                 <p>Tecnologias de Internet - Engenharia Informática</p>
             </div>
         </div>
     </div>
-
+    <!--Inicio sensores-->
     <div class="container">
-        <div class="row" style="padding-top: 30px;">
+        <h1 style="padding-top: 30px">Sensores</h1>
+        <div class="row" style="padding-top: 10px;">
+            <!--Sensor temperatura-->
             <div class="col">
                 <div class="card">
-                    <div class="card-header sensor">
+                    <div class="card-header sensor" style="text-align: center;">
                         <p><b>Temperatura:
                                 <?php echo intval($valor_temperatura); ?>ºC
                             </b></p>
                     </div>
                     <div class="card-body" style="text-align: center;">
-                        <img src="images/imagensdashboard/temperature-high.png">
+                        <img src="images/img_dashboard/temperature-high.png">
                     </div>
                     <div class="card-footer" style="text-align: center;">
                         <p><b>Atualização: </b>
@@ -77,30 +74,174 @@ if (!isset($_SESSION['credenciais'])) {
                     </div>
                 </div>
             </div>
+            <!--Sensor Presença-->
             <div class="col">
                 <div class="card">
-                    <div class="card-header sensor">
-                        <p><b>Humidade: 72%</b></p>
+                    <div class="card-header sensor" style="text-align: center;">
+                        <p><b>Presença:
+                                <?php echo ($valor_presenca); ?>
+                            </b></p>
                     </div>
                     <div class="card-body" style="text-align: center;">
-                        <img src="images/imagensdashboard/humidity-high.png">
+                        <img src="images/img_dashboard/humidity-high.png">
                     </div>
                     <div class="card-footer" style="text-align: center;">
-                        <p><b>Atualização:</b> 2023/03/10 14:31 - <a href="www.youtube.com">Histórico</a></p>
-
+                        <p><b>Atualização:</b>
+                            <?php echo $hora_presenca ?> - <a href="www.youtube.com">Histórico</a>
+                        </p>
                     </div>
                 </div>
             </div>
+            <!--Sensor Humidade-->
             <div class="col">
                 <div class="card">
-                    <div class="card-header atuador">
-                        <p><b>Humidade: 70%</b></p>
+                    <div class="card-header atuador" style="text-align: center;">
+                        <p><b>Humidade:
+                                <?php echo ($valor_humidade); ?>
+                            </b></p>
                     </div>
                     <div class="card-body" style="text-align: center;">
-                        <img src="images/imagensdashboard/light-on.png">
+                        <img src="images/img_dashboard/light-on.png">
                     </div>
                     <div class="card-footer" style="text-align: center;">
-                        <p><b>Atualização:</b> 2023/03/10 14:31 - <a href="www.youtube.com">Histórico</a></p>
+                        <p><b>Atualização:</b>
+                            <?php echo $hora_humidade ?> - <a href="www.youtube.com">Histórico</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--Sensor Fumo-->
+            <div class="col">
+                <div class="card">
+                    <div class="card-header atuador" style="text-align: center;">
+                        <p><b>Fumo:
+                                <?php echo ($valor_fumo); ?>
+                            </b></p>
+                    </div>
+                    <div class="card-body" style="text-align: center;">
+                        <img src="images/img_dashboard/light-on.png">
+                    </div>
+                    <div class="card-footer" style="text-align: center;">
+                        <p><b>Atualização:</b>
+                            <?php echo $hora_fumo ?> - <a href="www.youtube.com">Histórico</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--Gás-->
+            <div class="col">
+                <div class="card">
+                    <div class="card-header atuador" style="text-align: center;">
+                        <p><b>Gás:
+                                <?php echo $valor_gas ?>
+                            </b></p>
+                    </div>
+                    <div class="card-body" style="text-align: center;">
+                        <img src="images/img_dashboard/light-on.png">
+                    </div>
+                    <div class="card-footer" style="text-align: center;">
+                        <p><b>Atualização:</b>
+                            <?php echo $hora_gas ?></b> - <a href="www.youtube.com">Histórico</a>
+                        </p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Atuadores-->
+    <div class="container">
+        <h1 style="padding-top: 30px">Atuadores</h1>
+        <div class="row" style="padding-top: 10px;">
+            <!--Atuador Alarme-->
+            <div class="col">
+                <div class="card">
+                    <div class="card-header sensor" style="text-align: center;">
+                        <p><b>Alarme:
+                                <?php echo intval($valor_alarme); ?>ºC
+                            </b></p>
+                    </div>
+                    <div class="card-body" style="text-align: center;">
+                        <img src="images/img_dashboard/temperature-high.png">
+                    </div>
+                    <div class="card-footer" style="text-align: center;">
+                        <p><b>Atualização: </b>
+                            <?php echo $hora_alarme ?> - <a href="www.youtube.com">Histórico</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--Atuador Janela-->
+            <div class="col">
+                <div class="card">
+                    <div class="card-header sensor" style="text-align: center;">
+                        <p><b>Janela:
+                                <?php echo ($valor_janela); ?>
+                            </b></p>
+                    </div>
+                    <div class="card-body" style="text-align: center;">
+                        <img src="images/img_dashboard/humidity-high.png">
+                    </div>
+                    <div class="card-footer" style="text-align: center;">
+                        <p><b>Atualização:</b>
+                            <?php echo $hora_janela ?> - <a href="www.youtube.com">Histórico</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--Atuador Luz-->
+            <div class="col">
+                <div class="card">
+                    <div class="card-header atuador" style="text-align: center;">
+                        <p><b>Luz:
+                                <?php echo ($valor_luz); ?>
+                            </b></p>
+                    </div>
+                    <div class="card-body" style="text-align: center;">
+                        <img src="images/img_dashboard/light-on.png">
+                    </div>
+                    <div class="card-footer" style="text-align: center;">
+                        <p><b>Atualização:</b>
+                            <?php echo $hora_luz ?> - <a href="www.youtube.com">Histórico</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--Atuador Porta-->
+            <div class="col">
+                <div class="card">
+                    <div class="card-header atuador" style="text-align: center;">
+                        <p><b>Porta:
+                                <?php echo ($valor_porta); ?>
+                            </b></p>
+                    </div>
+                    <div class="card-body" style="text-align: center;">
+                        <img src="images/img_dashboard/light-on.png">
+                    </div>
+                    <div class="card-footer" style="text-align: center;">
+                        <p><b>Atualização:</b>
+                            <?php echo $hora_porta ?> - <a href="www.youtube.com">Histórico</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--Atuador Ventoinha-->
+            <div class="col">
+                <div class="card">
+                    <div class="card-header atuador" style="text-align: center;">
+                        <p><b>Ventoinha:
+                                <?php echo $valor_ventoinha ?>
+                            </b></p>
+                    </div>
+                    <div class="card-body" style="text-align: center;">
+                        <img src="images/img_dashboard/light-on.png">
+                    </div>
+                    <div class="card-footer" style="text-align: center;">
+                        <p><b>Atualização:</b>
+                            <?php echo $hora_ventoinha ?></b> - <a href="www.youtube.com">Histórico</a>
+                        </p>
+                        </p>
                     </div>
                 </div>
             </div>

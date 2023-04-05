@@ -1,25 +1,6 @@
 <?php
-
-$username = "admin";
-
-$password_hash = '$2y$10$oytrcrXj3DOI/vKkYLhd1O.EyYpaATB4818Acepsuctctm.qF2/QS';
-
-/*if (isset($_POST['username'])){
-echo "O username submetido foi: " .$_POST['username']."<br>";
-}
-if (isset($_POST['password'])){
-echo "A password submetida foi: " .$_POST['password']."<br>";
-}
-*/
-
-if (isset($_POST['username']) == $username && password_verify($_POST['password'], $password_hash)) {
-  session_start();
-  $_SESSION["credenciais"] = $_POST['username'];
-  header('Location: http://localhost:8080/rti/dashboard.php');
-}
-
+include('verificacao_login.php');
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -35,10 +16,9 @@ if (isset($_POST['username']) == $username && password_verify($_POST['password']
 
 <body>
   <div class="container">
-
     <div class="row justify-content-center">
       <form class="tiform" method="post">
-        <a href="index.php"><img src="images/imagens-login/MicrosoftTeams-image.png" alt="image1"></a>
+        <a href="index.php"><img src="../images/img_login/MicrosoftTeams-image.png" alt="image1"></a>
         <div class="mb-3" style="padding-top: 10px;">
           <label for="username" class="form-label">Username</label>
           <input name="username" type="text" class="form-control" id="username" placeholder="Username" required>
@@ -50,22 +30,6 @@ if (isset($_POST['username']) == $username && password_verify($_POST['password']
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
-
-    <?php
-    if (isset($_POST['username']) != null && isset($_POST['password']) != null) {
-      if ($_POST['username'] == $username) {
-        echo "Username correto. <br>";
-      } else {
-        echo "Username incorreto. <br>";
-      }
-
-      if (password_verify($_POST['password'], $password_hash)) {
-        echo "Password correta. <br>";
-      } else {
-        echo "Password incorreta. <br>";
-      }
-    }
-    ?>
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
