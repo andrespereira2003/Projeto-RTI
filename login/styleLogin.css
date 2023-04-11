@@ -1,14 +1,133 @@
-.tiform {
-  width: 350px;
-  padding: 15px;
-}
+  /* Põe o form a frente */
+  .login-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9998;
+    backdrop-filter: blur(4px);
+  }
 
-.sensor{
-  background-color: #93baff;
-  text-align: center;
-}
 
-.atuador{
-  background-color: #ffbf6c;
-  text-align: center;
-}
+  /* css das linhas do imput */
+  .login-popup input[type="text"],
+  .login-popup input[type="password"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
+
+  /* card de fundo */
+
+  .login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, .5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
+  }
+
+  /* Label H2 */
+  .login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+
+  /* posicaoItems */
+  .login-box .user-box {
+    position: relative;
+  }
+
+  /* caixasDeTexto */
+  .login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+
+  /* placeholder */
+  .login-box .user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+
+  /* animacaoPlaceholder */
+  .login-box .user-box input:focus~label,
+  .login-box .user-box input:valid~label {
+    top: -18px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+  }
+
+
+  /* botão submit */
+  .button-28 {
+    appearance: none;
+    background-color: rgb(250, 249, 249);
+    border: 2px solid rgb(250, 249, 249);
+    border-radius: 15px;
+    height: 10%;
+    box-sizing: border-box;
+    color: #040404;
+    cursor: auto;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 60px;
+    min-width: 0;
+    outline: none;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 50%;
+
+    will-change: transform;
+  }
+
+
+  .button-28:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+
+  .p {
+    color: rgb(255, 144, 144);
+    margin-top: -25px;
+    font-size: 14px;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  }

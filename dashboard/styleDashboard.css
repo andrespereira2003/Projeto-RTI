@@ -1,14 +1,18 @@
 .tiform {
     width: 350px;
     padding: 15px;
-}
-
-.sensor{
+  }
+  
+  .sensor{
     background-color: #93baff;
     text-align: center;
-}
-
-.atuador{
+  }
+  
+  .atuador{
     background-color: #ffbf6c;
     text-align: center;
-}
+  }
+
+  body{
+    background-color: white;
+  }

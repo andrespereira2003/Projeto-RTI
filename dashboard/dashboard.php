@@ -1,12 +1,10 @@
 <?php
-include 'variaveis_sensores_atuadores/variaveis.php'
-    ?>
+include '../variaveis_sensores_atuadores/variaveis.php';
+include '../login/login.php';
 
-<?php
 session_start();
 if (!isset($_SESSION['credenciais'])) {
-    header("refresh:5;url=dashboard.php");
-    die("Acesso Restrito");
+    echo "<script>document.getElementById('login-popup').style.display = 'block'</script>";
 }
 ?>
 
@@ -16,24 +14,25 @@ if (!isset($_SESSION['credenciais'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Plataforma Iot</title>
+    <title>Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
-    <meta http-equiv="refresh" content="2">
+    <link rel="stylesheet" href="./styleDashboard.css">
+    <link rel="stylesheet" href="../login/styleLogin.css">
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-sm bg-light" style="padding-left: 20px; padding-right: 20px;">
 
         <div class="container-fluid">
             <ul class="navbar-nav">
                 <span class="navbar-brand">Dashboard EI-TI</span>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="dashboard.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Histórico</a>
+                    <a class="nav-link" href="../historico/historicoLog.php">Histórico</a>
                 </li>
             </ul>
             <a class="btn btn-sm btn-outline-secondary" href="http://localhost:8080/Projeto-RTI/logout.php"
@@ -45,7 +44,7 @@ if (!isset($_SESSION['credenciais'])) {
     <div class="container" style="padding-top: 30px;">
         <div class="card">
             <div class="card-body">
-                <img class="float-end" src="images/img_dashboard/estg.png" alt="estg" width="300">
+                <img class="float-end" src="../images/img_dashboard/estg.png" alt="estg" width="300">
                 <h1>Servidor IoT</h1>
                 <p>Bem Vindo <b>UTILIZADOR XPTO</b></p>
                 <p>Tecnologias de Internet - Engenharia Informática</p>
@@ -65,11 +64,12 @@ if (!isset($_SESSION['credenciais'])) {
                             </b></p>
                     </div>
                     <div class="card-body" style="text-align: center;">
-                        <img src="images/img_dashboard/temperature-high.png">
+                        <img src="../images/img_dashboard/temperature-high.png">
                     </div>
                     <div class="card-footer" style="text-align: center;">
                         <p><b>Atualização: </b>
-                            <?php echo $hora_temperatura ?> - <a href="www.youtube.com">Histórico</a>
+                            <?php echo $hora_temperatura ?> - <a
+                                href="../historico/historicoLog.php?sensor=temperatura">Histórico</a>
                         </p>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ if (!isset($_SESSION['credenciais'])) {
                             </b></p>
                     </div>
                     <div class="card-body" style="text-align: center;">
-                        <img src="images/img_dashboard/humidity-high.png">
+                        <img src="../images/img_dashboard/humidity-high.png">
                     </div>
                     <div class="card-footer" style="text-align: center;">
                         <p><b>Atualização:</b>
@@ -101,7 +101,7 @@ if (!isset($_SESSION['credenciais'])) {
                             </b></p>
                     </div>
                     <div class="card-body" style="text-align: center;">
-                        <img src="images/img_dashboard/light-on.png">
+                        <img src="../images/img_dashboard/light-on.png">
                     </div>
                     <div class="card-footer" style="text-align: center;">
                         <p><b>Atualização:</b>
@@ -119,7 +119,7 @@ if (!isset($_SESSION['credenciais'])) {
                             </b></p>
                     </div>
                     <div class="card-body" style="text-align: center;">
-                        <img src="images/img_dashboard/light-on.png">
+                        <img src="../images/img_dashboard/light-on.png">
                     </div>
                     <div class="card-footer" style="text-align: center;">
                         <p><b>Atualização:</b>
@@ -137,7 +137,7 @@ if (!isset($_SESSION['credenciais'])) {
                             </b></p>
                     </div>
                     <div class="card-body" style="text-align: center;">
-                        <img src="images/img_dashboard/light-on.png">
+                        <img src="../images/img_dashboard/light-on.png">
                     </div>
                     <div class="card-footer" style="text-align: center;">
                         <p><b>Atualização:</b>
@@ -163,7 +163,7 @@ if (!isset($_SESSION['credenciais'])) {
                             </b></p>
                     </div>
                     <div class="card-body" style="text-align: center;">
-                        <img src="images/img_dashboard/temperature-high.png">
+                        <img src="../images/img_dashboard/temperature-high.png">
                     </div>
                     <div class="card-footer" style="text-align: center;">
                         <p><b>Atualização: </b>
@@ -181,7 +181,7 @@ if (!isset($_SESSION['credenciais'])) {
                             </b></p>
                     </div>
                     <div class="card-body" style="text-align: center;">
-                        <img src="images/img_dashboard/humidity-high.png">
+                        <img src="../images/img_dashboard/humidity-high.png">
                     </div>
                     <div class="card-footer" style="text-align: center;">
                         <p><b>Atualização:</b>
@@ -199,7 +199,7 @@ if (!isset($_SESSION['credenciais'])) {
                             </b></p>
                     </div>
                     <div class="card-body" style="text-align: center;">
-                        <img src="images/img_dashboard/light-on.png">
+                        <img src="../images/img_dashboard/light-on.png">
                     </div>
                     <div class="card-footer" style="text-align: center;">
                         <p><b>Atualização:</b>
@@ -217,7 +217,7 @@ if (!isset($_SESSION['credenciais'])) {
                             </b></p>
                     </div>
                     <div class="card-body" style="text-align: center;">
-                        <img src="images/img_dashboard/light-on.png">
+                        <img src="../images/img_dashboard/light-on.png">
                     </div>
                     <div class="card-footer" style="text-align: center;">
                         <p><b>Atualização:</b>
@@ -235,7 +235,7 @@ if (!isset($_SESSION['credenciais'])) {
                             </b></p>
                     </div>
                     <div class="card-body" style="text-align: center;">
-                        <img src="images/img_dashboard/light-on.png">
+                        <img src="../images/img_dashboard/light-on.png">
                     </div>
                     <div class="card-footer" style="text-align: center;">
                         <p><b>Atualização:</b>
