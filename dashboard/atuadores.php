@@ -22,11 +22,9 @@ if (!isset($_SESSION['credenciais'])) {
     <link rel="stylesheet" href="sidebars.css">
     <link rel="stylesheet" href="./styleDashboard.css">
     <link rel="stylesheet" href="../login/styleLogin.css">
-    <script>  </script>
 </head>
 
 <!-- <script>
-
 
     while (true) {
         setTimeout(() => {
@@ -41,8 +39,8 @@ if (!isset($_SESSION['credenciais'])) {
 </script> -->
 
 <body>
-
     <main>
+
         <!-- Menu -->
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -66,8 +64,7 @@ if (!isset($_SESSION['credenciais'])) {
                                         <use xlink:href="#sensor" />
                                     </svg>
                                     Sensores</a></li>
-                            <li><a href="atuadores.php" class="link-light rounded"><svg class="bi me-2" width="16"
-                                        height="16">
+                            <li><a href="#" class="link-light rounded"><svg class="bi me-2" width="16" height="16">
                                         <use xlink:href="#atuador" />
                                     </svg>
                                     Atuadores</a></li>
@@ -86,8 +83,7 @@ if (!isset($_SESSION['credenciais'])) {
                                         <use xlink:href="#sensor" />
                                     </svg>
                                     Sensores</a></li>
-                            <li><a href="atuadores.php" class="link-light rounded"><svg class="bi me-2" width="16"
-                                        height="16">
+                            <li><a href="#" class="link-light rounded"><svg class="bi me-2" width="16" height="16">
                                         <use xlink:href="#atuador" />
                                     </svg>
                                     Atuadores</a></li>
@@ -120,117 +116,13 @@ if (!isset($_SESSION['credenciais'])) {
         </div>
         <div class="b-example-divider"></div>
 
-        <!--Inicio sensores-->
-        <div class="container">
-            <h1 style="padding-top: 30px">Sensores</h1>
-            <div class="row" style="padding-top: 10px;">
-                <!--Sensor temperatura-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header sensor" style="text-align: center;">
-                            <p><b>Temperatura:
-                                    <?php echo intval($valor_temperatura); ?>ºC
-                                </b></p>
-                        </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/temperature-high.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização: </b>
-                                <?php echo $hora_temperatura;
-                                $teste = 'sensores';
-                                ?> - <a href="../historico/historicoLog.php?sensor=temperatura">Histórico</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--Sensor Presença-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header sensor" style="text-align: center;">
-                            <p><b>Presença:
-                                    <?php echo ($valor_presenca); ?>
-                                </b></p>
-                        </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/humidity-high.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_presenca ?> - <a
-                                    href="../historico/historicoLog.php?sensor=presenca">Histórico</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--Sensor Humidade-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header atuador" style="text-align: center;">
-                            <p><b>Humidade:
-                                    <?php echo ($valor_humidade); ?>
-                                </b></p>
-                        </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/light-on.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_humidade ?> - <a
-                                    href="../historico/historicoLog.php?sensor=humidade">Histórico</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--Sensor Fumo-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header atuador" style="text-align: center;">
-                            <p><b>Fumo:
-                                    <?php echo ($valor_fumo); ?>
-                                </b></p>
-                        </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/light-on.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_fumo ?> - <a
-                                    href="../historico/historicoLog.php?sensor=fumo">Histórico</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--Gás-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header atuador" style="text-align: center;">
-                            <p><b>Gás:
-                                    <?php echo $valor_gas ?>
-                                </b></p>
-                        </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/light-on.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_gas ?></b> - <a
-                                    href="../historico/historicoLog.php?sensor=gas">Histórico</a>
-                            </p>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!--Atuadores-->
         <div class="container">
             <h1 style="padding-top: 30px">Atuadores</h1>
             <div class="row" style="padding-top: 10px;">
                 <!--Atuador Alarme-->
                 <div class="col">
-                    <div class="card">
+                    <div class="card bg-light mb-3">
                         <div class="card-header sensor" style="text-align: center;">
                             <p><b>Alarme:
                                     <?php echo intval($valor_alarme); ?>ºC
@@ -328,52 +220,6 @@ if (!isset($_SESSION['credenciais'])) {
             </div>
         </div>
 
-        <div class="container" style="padding-top: 30px;">
-            <div class="card">
-                <div class="card-header">
-                    <p><b>Tabela de Sensores</b></p>
-                </div>
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Tipo de Dispositivo IoT</th>
-                                <th scope="col">Valor</th>
-                                <th scope="col">Data de Atualização</th>
-                                <th scope="col">Estado Alertas</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">
-                                    <?php echo $nome_temperatura; ?>
-                                </td>
-                                <td>
-                                    <?php echo intval($valor_temperatura) ?>ºC
-                                </td>
-                                <td>
-                                    <?php echo $hora_temperatura; ?>
-                                </td>
-                                <td><span class="badge rounded-pill text-bg-danger">Elevada</span></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Humidade</td>
-                                <td>70%</td>
-                                <td>2023/03/10 14:31</td>
-                                <td><span class="badge rounded-pill text-bg-primary">Normal</span></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Led Arduino</td>
-                                <td>Ligado</td>
-                                <td>2023/03/10 14:31</td>
-                                <td><span class="badge rounded-pill text-bg-success">Ativo</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -381,7 +227,7 @@ if (!isset($_SESSION['credenciais'])) {
         crossorigin="anonymous"></script>
 
     <script src="sidebars.js"></script>
-    <script type="text/javascript" src="delay.js"></script>
+    <script src="delay.js"></script>
     <div></div>
 </body>
 

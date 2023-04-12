@@ -22,11 +22,9 @@ if (!isset($_SESSION['credenciais'])) {
     <link rel="stylesheet" href="sidebars.css">
     <link rel="stylesheet" href="./styleDashboard.css">
     <link rel="stylesheet" href="../login/styleLogin.css">
-    <script>  </script>
 </head>
 
 <!-- <script>
-
 
     while (true) {
         setTimeout(() => {
@@ -41,8 +39,8 @@ if (!isset($_SESSION['credenciais'])) {
 </script> -->
 
 <body>
-
     <main>
+
         <!-- Menu -->
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -56,13 +54,12 @@ if (!isset($_SESSION['credenciais'])) {
             <ul class="list-unstyled ps-0 mb-auto">
                 <li class="mb-1">
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#home-collapse" aria-expanded="true" onclick="delay()">
+                        data-bs-target="#home-collapse" aria-expanded="true">
                         Painel de controlo
                     </button>
                     <div class="collapse show" id="home-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="sensores.php" class="link-light rounded"><svg class="bi me-2" width="16"
-                                        height="16">
+                            <li><a href="#" class="link-light rounded"><svg class="bi me-2" width="16" height="16">
                                         <use xlink:href="#sensor" />
                                     </svg>
                                     Sensores</a></li>
@@ -81,13 +78,11 @@ if (!isset($_SESSION['credenciais'])) {
                     </button>
                     <div class="collapse" id="dashboard-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                            <li><a href="sensores.php" class="link-light rounded"><svg class="bi me-2" width="16"
-                                        height="16">
+                            <li><a href="#" class="link-light rounded"><svg class="bi me-2" width="16" height="16">
                                         <use xlink:href="#sensor" />
                                     </svg>
                                     Sensores</a></li>
-                            <li><a href="atuadores.php" class="link-light rounded"><svg class="bi me-2" width="16"
-                                        height="16">
+                            <li><a href="#" class="link-light rounded"><svg class="bi me-2" width="16" height="16">
                                         <use xlink:href="#atuador" />
                                     </svg>
                                     Atuadores</a></li>
@@ -221,58 +216,11 @@ if (!isset($_SESSION['credenciais'])) {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!--Atuadores-->
-        <div class="container">
-            <h1 style="padding-top: 30px">Atuadores</h1>
-            <div class="row" style="padding-top: 10px;">
-                <!--Atuador Alarme-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header sensor" style="text-align: center;">
-                            <p><b>Alarme:
-                                    <?php echo intval($valor_alarme); ?>ºC
-                                </b></p>
-                        </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/temperature-high.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização: </b>
-                                <?php $teste = 'atuadores';
-                                echo $hora_alarme; ?> - <a
-                                    href="../historico/historicoLog.php?atuador=alarme">Histórico</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--Atuador Janela-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header sensor" style="text-align: center;">
-                            <p><b>Janela:
-                                    <?php echo ($valor_janela); ?>
-                                </b></p>
-                        </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/humidity-high.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_janela ?> - <a
-                                    href="../historico/historicoLog.php?atuador=janela">Histórico</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--Atuador Luz-->
                 <div class="col">
                     <div class="card">
                         <div class="card-header atuador" style="text-align: center;">
-                            <p><b>Luz:
-                                    <?php echo ($valor_luz); ?>
+                            <p><b>RFID:
+                                    <?php echo $valor_rfid ?>
                                 </b></p>
                         </div>
                         <div class="card-body" style="text-align: center;">
@@ -280,96 +228,12 @@ if (!isset($_SESSION['credenciais'])) {
                         </div>
                         <div class="card-footer" style="text-align: center;">
                             <p><b>Atualização:</b>
-                                <?php echo $hora_luz ?> - <a
-                                    href="../historico/historicoLog.php?atuador=luz">Histórico</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--Atuador Porta-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header atuador" style="text-align: center;">
-                            <p><b>Porta:
-                                    <?php echo ($valor_porta); ?>
-                                </b></p>
-                        </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/light-on.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_porta ?> - <a
-                                    href="../historico/historicoLog.php?atuador=porta">Histórico</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--Atuador Ventoinha-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header atuador" style="text-align: center;">
-                            <p><b>Ventoinha:
-                                    <?php echo $valor_ventoinha ?>
-                                </b></p>
-                        </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/light-on.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_ventoinha ?></b> - <a
-                                    href="../historico/historicoLog.php?atuador=ventoinha">Histórico</a>
+                                <?php echo $hora_rfid ?></b> - <a
+                                    href="../historico/historicoLog.php?sensor=rfid">Histórico</a>
                             </p>
                             </p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="container" style="padding-top: 30px;">
-            <div class="card">
-                <div class="card-header">
-                    <p><b>Tabela de Sensores</b></p>
-                </div>
-                <div class="card-body">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Tipo de Dispositivo IoT</th>
-                                <th scope="col">Valor</th>
-                                <th scope="col">Data de Atualização</th>
-                                <th scope="col">Estado Alertas</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td scope="row">
-                                    <?php echo $nome_temperatura; ?>
-                                </td>
-                                <td>
-                                    <?php echo intval($valor_temperatura) ?>ºC
-                                </td>
-                                <td>
-                                    <?php echo $hora_temperatura; ?>
-                                </td>
-                                <td><span class="badge rounded-pill text-bg-danger">Elevada</span></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Humidade</td>
-                                <td>70%</td>
-                                <td>2023/03/10 14:31</td>
-                                <td><span class="badge rounded-pill text-bg-primary">Normal</span></td>
-                            </tr>
-                            <tr>
-                                <td scope="row">Led Arduino</td>
-                                <td>Ligado</td>
-                                <td>2023/03/10 14:31</td>
-                                <td><span class="badge rounded-pill text-bg-success">Ativo</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </div>
@@ -381,7 +245,7 @@ if (!isset($_SESSION['credenciais'])) {
         crossorigin="anonymous"></script>
 
     <script src="sidebars.js"></script>
-    <script type="text/javascript" src="delay.js"></script>
+
     <div></div>
 </body>
 

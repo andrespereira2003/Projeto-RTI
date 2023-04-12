@@ -38,6 +38,13 @@ $hora_humidade = file_get_contents("../api/files/sensores/humidade/hora.txt");
 $nome_humidade = file_get_contents("../api/files/sensores/humidade/nome.txt");
 $log_humidade = file_get_contents("../api/files/sensores/humidade/log.txt");
 
+//RFID
+$valor_rfid = file_get_contents("../api/files/sensores/RFID/valor.txt");
+$hora_rfid = file_get_contents("../api/files/sensores/RFID/hora.txt");
+$nome_rfid = file_get_contents("../api/files/sensores/RFID/nome.txt");
+$log_rfid = file_get_contents("../api/files/sensores/RFID/log.txt");
+
+
 
 //ATUADORES
 
