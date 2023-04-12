@@ -374,6 +374,10 @@ include 'symbols.php'
     crossorigin="anonymous"></script>
 
   <script src="sidebars.js"></script>
+
+  <div></div>
 </body>
+
+
 
 </html>
