@@ -4,8 +4,9 @@
 }
 
 .sensor {
-    background-color: #93baff;
+    background-color: #eeeeee00;
     text-align: center;
+    padding: 20px;
 }
 
 .atuador {
@@ -14,10 +15,15 @@
 }
 
 body {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.918);
 }
 
 i {
-    color: white;
+    color: rgba(255, 255, 255, 0.911);
     stroke: white;
+}
+
+.header {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

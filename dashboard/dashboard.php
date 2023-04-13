@@ -3,6 +3,7 @@ session_start();
 include '../variaveis_sensores_atuadores/variaveis.php';
 include '../login/login.php';
 include 'symbols.php';
+include '../historico\historicoLog.php';
 
 if (!isset($_SESSION['credenciais'])) {
     echo "<script>document.getElementById('login-popup').style.display = 'block'</script>";
@@ -26,8 +27,6 @@ if (!isset($_SESSION['credenciais'])) {
 </head>
 
 <!-- <script>
-
-
     while (true) {
         setTimeout(() => {
             fetch('url').then((res) => {
@@ -36,8 +35,6 @@ if (!isset($_SESSION['credenciais'])) {
             }).catch((err) => console.log(err));
         }, 5000);
     }
-
-
 </script> -->
 
 <body>
@@ -46,12 +43,11 @@ if (!isset($_SESSION['credenciais'])) {
         <!-- Menu -->
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32" style="margin-bottom: 10px;">
+                <svg class="bi me-2" width="40" height="32">
                     <use xlink:href="#logo" />
                 </svg>
-                <span class="fs-4" style="margin-bottom: 10px;">Servidor IoT</span>
+                <span class="fs-4">Casa Inteligente</span>
             </a>
-            <span style="font-size: 14px">Tecnologias de Internet - Engenharia Informática</span>
             <hr>
             <ul class="list-unstyled ps-0 mb-auto">
                 <li class="mb-1">
@@ -139,13 +135,14 @@ if (!isset($_SESSION['credenciais'])) {
                             <p><b>Atualização: </b>
                                 <?php echo $hora_temperatura;
                                 $teste = 'sensores';
-                                ?> - <a href="../historico/historicoLog.php?sensor=temperatura">Histórico</a>
+                                ?> - <a href="../historico/historicoLog.php?sensor=temperatura"
+                                    onclick="document.getElementById('Modal').style.display = 'block'">Histórico</a>
                             </p>
                         </div>
                     </div>
                 </div>
                 <!--Sensor Presença-->
-                <div class="col">
+                <div class=" col">
                     <div class="card">
                         <div class="card-header sensor" style="text-align: center;">
                             <p><b>Presença:

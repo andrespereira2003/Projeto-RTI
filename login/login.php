@@ -28,9 +28,6 @@ include('verificacao_login.php');
             <p class="p">
               <?php echo $message ?>
             </p>
-
-
-
           </div>
 
           <button type="submit" class="button-28">Submit</button>

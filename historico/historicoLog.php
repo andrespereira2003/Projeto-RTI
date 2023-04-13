@@ -19,7 +19,7 @@ include '../variaveis_sensores_atuadores/variaveis.php';
 
 <body>
 
-    <div class="container center">
+    <div class="modal container center" style="display: none;" id="Modal">
         <div class="card">
 
             <!-- buscar dentro do vetor as atualizações de data e hora do sensor selecionado -->

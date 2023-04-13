@@ -44,12 +44,11 @@ if (!isset($_SESSION['credenciais'])) {
         <!-- Menu -->
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32" style="margin-bottom: 10px;">
+                <svg class="bi me-2" width="40" height="32">
                     <use xlink:href="#logo" />
                 </svg>
-                <span class="fs-4" style="margin-bottom: 10px;">Servidor IoT</span>
+                <span class="fs-4">Casa Inteligente</span>
             </a>
-            <span style="font-size: 14px">Tecnologias de Internet - Engenharia Informática</span>
             <hr>
             <ul class="list-unstyled ps-0 mb-auto">
                 <li class="mb-1">
@@ -114,106 +113,121 @@ if (!isset($_SESSION['credenciais'])) {
                 </ul>
             </div>
         </div>
-        <div class="b-example-divider"></div>
+        <div class="vr vr-blurry" style="height: 2000px"></div>
 
         <!--Atuadores-->
         <div class="container">
-            <h1 style="padding-top: 30px">Atuadores</h1>
+            <h1 class="display-2 header">Atuadores</h1>
             <div class="row" style="padding-top: 10px;">
                 <!--Atuador Alarme-->
-                <div class="col">
-                    <div class="card bg-light mb-3">
+                <div class="col-4 p-3">
+                    <div class="card" style="text-align: center;">
                         <div class="card-header sensor" style="text-align: center;">
-                            <p><b>Alarme:
-                                    <?php echo intval($valor_alarme); ?>ºC
-                                </b></p>
+                            <svg class="bi me-2" width="125" height="125">
+                                <use xlink:href="#alarme" />
+                            </svg>
                         </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/temperature-high.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização: </b>
-                                <?php $teste = 'atuadores';
-                                echo $hora_alarme; ?> - <a
-                                    href="../historico/historicoLog.php?atuador=alarme">Histórico</a>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Alarme:</b>
+                                <?php echo ($valor_alarme); ?>
+                            </h5>
+                            <hr>
+                            <p class="card-text"><b>Atualização: </b>
+                                <?php echo $hora_alarme;
+                                ?>
                             </p>
+                            <a href="../historico/historicoLog.php?atuador=alarme" class=" btn
+                                btn-primary">Histórico</a>
                         </div>
                     </div>
                 </div>
                 <!--Atuador Janela-->
-                <div class="col">
-                    <div class="card">
+                <div class="col-4 p-3">
+                    <div class="card" style="text-align: center;">
                         <div class="card-header sensor" style="text-align: center;">
-                            <p><b>Janela:
-                                    <?php echo ($valor_janela); ?>
-                                </b></p>
+                            <svg class="bi me-2" width="125" height="125">
+                                <use xlink:href="#janela" />
+                            </svg>
                         </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/humidity-high.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_janela ?> - <a
-                                    href="../historico/historicoLog.php?atuador=janela">Histórico</a>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Janela:</b>
+                                <?php echo ($valor_janela); ?>
+                            </h5>
+                            <hr>
+                            <p class="card-text"><b>Atualização: </b>
+                                <?php echo $hora_janela;
+                                ?>
                             </p>
+                            <a href="../historico/historicoLog.php?atuador=janela" class=" btn
+                                btn-primary">Histórico</a>
                         </div>
                     </div>
                 </div>
                 <!--Atuador Luz-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header atuador" style="text-align: center;">
-                            <p><b>Luz:
-                                    <?php echo ($valor_luz); ?>
-                                </b></p>
+                <div class="col-4 p-3">
+                    <div class="card" style="text-align: center;">
+                        <div class="card-header sensor" style="text-align: center;">
+                            <svg class="bi me-2" width="125" height="125">
+                                <use xlink:href="#luz" />
+                            </svg>
                         </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/light-on.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_luz ?> - <a
-                                    href="../historico/historicoLog.php?atuador=luz">Histórico</a>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Luz:</b>
+                                <?php echo ($valor_luz); ?>
+                            </h5>
+                            <hr>
+                            <p class="card-text"><b>Atualização: </b>
+                                <?php echo $hora_luz;
+                                ?>
                             </p>
+                            <a href="../historico/historicoLog.php?atuador=luz" class=" btn
+                                btn-primary">Histórico</a>
                         </div>
                     </div>
                 </div>
-                <!--Atuador Porta-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header atuador" style="text-align: center;">
-                            <p><b>Porta:
+                <div class="row justify-content-center">
+                    <!--Atuador Porta-->
+                    <div class="col-4 p-3">
+                        <div class="card" style="text-align: center;">
+                            <div class="card-header sensor" style="text-align: center;">
+                                <svg class="bi me-2" width="125" height="125">
+                                    <use xlink:href="#porta" />
+                                </svg>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><b>Porta:</b>
                                     <?php echo ($valor_porta); ?>
-                                </b></p>
-                        </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/light-on.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_porta ?> - <a
-                                    href="../historico/historicoLog.php?atuador=porta">Histórico</a>
-                            </p>
+                                </h5>
+                                <hr>
+                                <p class="card-text"><b>Atualização: </b>
+                                    <?php echo $hora_porta;
+                                    ?>
+                                </p>
+                                <a href="../historico/historicoLog.php?atuador=porta" class=" btn
+                                btn-primary">Histórico</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--Atuador Ventoinha-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header atuador" style="text-align: center;">
-                            <p><b>Ventoinha:
-                                    <?php echo $valor_ventoinha ?>
-                                </b></p>
-                        </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/light-on.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_ventoinha ?></b> - <a
-                                    href="../historico/historicoLog.php?atuador=ventoinha">Histórico</a>
-                            </p>
-                            </p>
+                    <!--Atuador Ventoinha-->
+                    <div class="col-4 p-3">
+                        <div class="card" style="text-align: center;">
+                            <div class="card-header sensor" style="text-align: center;">
+                                <svg class="bi me-2" width="125" height="125">
+                                    <use xlink:href="#ventoinha" />
+                                </svg>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><b>Ventoinha:</b>
+                                    <?php echo ($valor_ventoinha); ?>
+                                </h5>
+                                <hr>
+                                <p class="card-text"><b>Atualização: </b>
+                                    <?php echo $hora_ventoinha;
+                                    ?>
+                                </p>
+                                <a href="../historico/historicoLog.php?atuador=ventoinha" class=" btn
+                                btn-primary">Histórico</a>
+                            </div>
                         </div>
                     </div>
                 </div>
