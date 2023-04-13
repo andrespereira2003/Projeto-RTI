@@ -3,6 +3,7 @@ session_start();
 include '../variaveis_sensores_atuadores/variaveis.php';
 include '../login/login.php';
 include 'symbols.php';
+include '../historico\historicoLog.php';
 
 if (!isset($_SESSION['credenciais'])) {
     echo "<script>document.getElementById('login-popup').style.display = 'block'</script>";
@@ -44,12 +45,11 @@ if (!isset($_SESSION['credenciais'])) {
         <!-- Menu -->
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <svg class="bi me-2" width="40" height="32" style="margin-bottom: 10px;">
+                <svg class="bi me-2" width="40" height="32">
                     <use xlink:href="#logo" />
                 </svg>
-                <span class="fs-4" style="margin-bottom: 10px;">Servidor IoT</span>
+                <span class="fs-4">Casa Inteligente</span>
             </a>
-            <span style="font-size: 14px">Tecnologias de Internet - Engenharia Informática</span>
             <hr>
             <ul class="list-unstyled ps-0 mb-auto">
                 <li class="mb-1">
@@ -113,125 +113,146 @@ if (!isset($_SESSION['credenciais'])) {
                 </ul>
             </div>
         </div>
-        <div class="b-example-divider"></div>
-
+        <div class="vr vr-blurry" style="height: 2000px"></div>
         <!--Inicio sensores-->
         <div class="container">
-            <h1 style="padding-top: 30px">Sensores</h1>
+            <h1 class="display-2 header">Sensores</h1>
             <div class="row" style="padding-top: 10px;">
-                <!--Sensor temperatura-->
-                <div class="col">
-                    <div class="card">
+                <!-- Sensor Temperatura -->
+                <div class="col-4 p-3">
+                    <div class="card" style="text-align: center;">
                         <div class="card-header sensor" style="text-align: center;">
-                            <p><b>Temperatura:
-                                    <?php echo intval($valor_temperatura); ?>ºC
-                                </b></p>
+                            <svg class="bi me-2" width="125" height="125">
+                                <use xlink:href="#temperatura" />
+                            </svg>
                         </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/temperature-high.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização: </b>
+                        <div class="card-body" action='../historico\historicoLog.php'>
+                            <h5 class="card-title"><b>Temperatura:</b>
+                                <?php echo intval($valor_temperatura); ?>ºC
+                            </h5>
+                            <hr>
+                            <p class="card-text"><b>Atualização: </b>
                                 <?php echo $hora_temperatura;
-                                $teste = 'sensores';
-                                ?> - <a href="../historico/historicoLog.php?sensor=temperatura">Histórico</a>
+                                ?>
                             </p>
+                            <!-- <a href="../historico/historicoLog.php?sensor=temperatura" class="btn
+                                btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable"
+                                onclick="document.getElementById('Modal').style.display = 'block'">Histórico</a>
+                            <?php echo $hora_presenca ?> - <a
+                                href="../historico/historicoLog.php?sensor=temperatura">Histórico</a> -->
+                            <button type="submit" value="sensor=temperatura" class="btn
+                                btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable"
+                                onclick="document.getElementById('Modal').style.display = 'block'">Histórico</button>
                         </div>
                     </div>
                 </div>
                 <!--Sensor Presença-->
-                <div class="col">
-                    <div class="card">
+                <div class="col-4 p-3">
+                    <div class="card" style="text-align: center;">
                         <div class="card-header sensor" style="text-align: center;">
-                            <p><b>Presença:
-                                    <?php echo ($valor_presenca); ?>
-                                </b></p>
+                            <svg class="bi me-2" width="125" height="125">
+                                <use xlink:href="#presenca" />
+                            </svg>
                         </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/humidity-high.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_presenca ?> - <a
-                                    href="../historico/historicoLog.php?sensor=presenca">Histórico</a>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Presença:</b>
+                                <?php echo ($valor_presenca); ?>
+                            </h5>
+                            <hr>
+                            <p class="card-text"><b>Atualização: </b>
+                                <?php echo $hora_presenca;
+                                ?>
                             </p>
+                            <a href="../historico/historicoLog.php?sensor=presenca" class=" btn
+                                btn-primary">Histórico</a>
                         </div>
                     </div>
                 </div>
                 <!--Sensor Humidade-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header atuador" style="text-align: center;">
-                            <p><b>Humidade:
-                                    <?php echo ($valor_humidade); ?>
-                                </b></p>
+                <div class="col-4 p-3">
+                    <div class="card" style="text-align: center;">
+                        <div class="card-header sensor" style="text-align: center;">
+                            <svg class="bi me-2" width="125" height="125">
+                                <use xlink:href="#humidade" />
+                            </svg>
                         </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/light-on.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_humidade ?> - <a
-                                    href="../historico/historicoLog.php?sensor=humidade">Histórico</a>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Humidade:</b>
+                                <?php echo ($valor_humidade); ?>
+                            </h5>
+                            <hr>
+                            <p class="card-text"><b>Atualização: </b>
+                                <?php echo $hora_humidade;
+                                ?>
                             </p>
+                            <a href="../historico/historicoLog.php?sensor=humidade" class=" btn
+                                btn-primary">Histórico</a>
                         </div>
                     </div>
                 </div>
                 <!--Sensor Fumo-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header atuador" style="text-align: center;">
-                            <p><b>Fumo:
-                                    <?php echo ($valor_fumo); ?>
-                                </b></p>
+                <div class="col-4 p-3">
+                    <div class="card" style="text-align: center;">
+                        <div class="card-header sensor" style="text-align: center;">
+                            <svg class="bi me-2" width="125" height="125">
+                                <use xlink:href="#fumo" />
+                            </svg>
                         </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/light-on.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_fumo ?> - <a
-                                    href="../historico/historicoLog.php?sensor=fumo">Histórico</a>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Fumo:</b>
+                                <?php echo ($valor_fumo); ?>
+                            </h5>
+                            <hr>
+                            <p class="card-text"><b>Atualização: </b>
+                                <?php echo $hora_fumo;
+                                ?>
                             </p>
+                            <a href="../historico/historicoLog.php?sensor=fumo" class=" btn
+                                btn-primary">Histórico</a>
                         </div>
                     </div>
                 </div>
                 <!--Gás-->
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header atuador" style="text-align: center;">
-                            <p><b>Gás:
-                                    <?php echo $valor_gas ?>
-                                </b></p>
+                <div class="col-4 p-3">
+                    <div class="card" style="text-align: center;">
+                        <div class="card-header sensor" style="text-align: center;">
+                            <svg class="bi me-2" width="125" height="125">
+                                <use xlink:href="#gas" />
+                            </svg>
                         </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/light-on.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_gas ?></b> - <a
-                                    href="../historico/historicoLog.php?sensor=gas">Histórico</a>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Gás:</b>
+                                <?php echo ($valor_gas); ?>
+                            </h5>
+                            <hr>
+                            <p class="card-text"><b>Atualização: </b>
+                                <?php echo $hora_gas;
+                                ?>
                             </p>
-                            </p>
+                            <a href="../historico/historicoLog.php?sensor=gas" class=" btn
+                                btn-primary">Histórico</a>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-header atuador" style="text-align: center;">
-                            <p><b>RFID:
-                                    <?php echo $valor_rfid ?>
-                                </b></p>
+                <!-- RFID -->
+                <div class="col-4 p-3">
+                    <div class="card" style="text-align: center;">
+                        <div class="card-header sensor" style="text-align: center;">
+                            <svg class="bi me-2" width="125" height="125">
+                                <use xlink:href="#rfid" />
+                            </svg>
                         </div>
-                        <div class="card-body" style="text-align: center;">
-                            <img src="../images/img_dashboard/light-on.png">
-                        </div>
-                        <div class="card-footer" style="text-align: center;">
-                            <p><b>Atualização:</b>
-                                <?php echo $hora_rfid ?></b> - <a
-                                    href="../historico/historicoLog.php?sensor=rfid">Histórico</a>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>RFID:</b>
+                                <?php echo ($valor_rfid); ?>
+                            </h5>
+                            <hr>
+                            <p class="card-text"><b>Atualização: </b>
+                                <?php echo $hora_rfid;
+                                ?>
                             </p>
-                            </p>
+                            <a href="../historico/historicoLog.php?sensor=rfid" class=" btn
+                                btn-primary">Histórico</a>
                         </div>
                     </div>
                 </div>
