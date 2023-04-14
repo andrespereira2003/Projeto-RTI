@@ -126,7 +126,7 @@ if (!isset($_SESSION['credenciais'])) {
                                 <use xlink:href="#temperatura" />
                             </svg>
                         </div>
-                        <div class="card-body" action='../historico\historicoLog.php'>
+                        <div class="card-body">
                             <h5 class="card-title"><b>Temperatura:</b>
                                 <?php echo intval($valor_temperatura); ?>ºC
                             </h5>
@@ -135,14 +135,11 @@ if (!isset($_SESSION['credenciais'])) {
                                 <?php echo $hora_temperatura;
                                 ?>
                             </p>
-                            <!-- <a href="../historico/historicoLog.php?sensor=temperatura" class="btn
-                                btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable"
-                                onclick="document.getElementById('Modal').style.display = 'block'">Histórico</a>
-                            <?php echo $hora_presenca ?> - <a
-                                href="../historico/historicoLog.php?sensor=temperatura">Histórico</a> -->
-                            <button type="submit" value="sensor=temperatura" class="btn
-                                btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable"
-                                onclick="document.getElementById('Modal').style.display = 'block'">Histórico</button>
+                            <form method="get">
+                                <input type="submit" name="sensor" value="temperatura" class="btn
+                                btn-primary" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalCenteredScrollable"></input>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -163,11 +160,25 @@ if (!isset($_SESSION['credenciais'])) {
                                 <?php echo $hora_presenca;
                                 ?>
                             </p>
-                            <a href="../historico/historicoLog.php?sensor=presenca" class=" btn
-                                btn-primary">Histórico</a>
+                            <form method="get" id="form1">
+                                <input type="submit" name="sensor" value="presenca" id="teste1"></input>
+                                <button type="submit" name="sensor" value="presenca" type="button"
+                                    class="btn btn-primary">
+                                    Vertically centered scrollable modal
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
+
+                <script>
+                    function submit() {
+                        let form = document.getElementById("form1");
+                        form.submit();
+                        alert("Data stored in database!");
+                    }
+                </script>
+
                 <!--Sensor Humidade-->
                 <div class="col-4 p-3">
                     <div class="card" style="text-align: center;">
