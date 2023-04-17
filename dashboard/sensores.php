@@ -5,6 +5,7 @@ include '../login/login.php';
 include 'symbols.php';
 include '../historico\historicoLog.php';
 
+
 if (!isset($_SESSION['credenciais'])) {
     echo "<script>document.getElementById('login-popup').style.display = 'block'</script>";
 }
@@ -23,21 +24,8 @@ if (!isset($_SESSION['credenciais'])) {
     <link rel="stylesheet" href="sidebars.css">
     <link rel="stylesheet" href="./styleDashboard.css">
     <link rel="stylesheet" href="../login/styleLogin.css">
+    <link rel="stylesheet" href="popUp.css">
 </head>
-
-<!-- <script>
-
-    while (true) {
-        setTimeout(() => {
-            fetch('url').then((res) => {
-                const divSensor = document.querySelectorAll('.abc');
-                divSensor.innerText = res.valor;
-            }).catch((err) => console.log(err));
-        }, 5000);
-    }
-
-
-</script> -->
 
 <body>
     <main>
@@ -54,7 +42,7 @@ if (!isset($_SESSION['credenciais'])) {
             <ul class="list-unstyled ps-0 mb-auto">
                 <li class="mb-1">
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#home-collapse" aria-expanded="true">
+                        data-bs-target="#home-collapse" aria-expanded="true" onclick="delay()">
                         Painel de controlo
                     </button>
                     <div class="collapse show" id="home-collapse">
@@ -135,10 +123,8 @@ if (!isset($_SESSION['credenciais'])) {
                                 <?php echo $hora_temperatura;
                                 ?>
                             </p>
-                            <form method="get">
-                                <input type="submit" name="sensor" value="temperatura" class="btn
-                                btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModalCenteredScrollable"></input>
+                            <form method="get" id="form1">
+  <p><a class="btn btn-primary" href="?sensor=temperatura#popUpHistorico">Histórico</a></p>
                             </form>
                         </div>
                     </div>
@@ -157,27 +143,16 @@ if (!isset($_SESSION['credenciais'])) {
                             </h5>
                             <hr>
                             <p class="card-text"><b>Atualização: </b>
-                                <?php echo $hora_presenca;
+                             <?php echo $hora_presenca;
                                 ?>
                             </p>
                             <form method="get" id="form1">
-                                <input type="submit" name="sensor" value="presenca" id="teste1"></input>
-                                <button type="submit" name="sensor" value="presenca" type="button"
-                                    class="btn btn-primary">
-                                    Vertically centered scrollable modal
-                                </button>
+  <p><a class="btn btn-primary" href="?sensor=presenca#popUpHistorico">Histórico</a></p>
                             </form>
                         </div>
                     </div>
                 </div>
 
-                <script>
-                    function submit() {
-                        let form = document.getElementById("form1");
-                        form.submit();
-                        alert("Data stored in database!");
-                    }
-                </script>
 
                 <!--Sensor Humidade-->
                 <div class="col-4 p-3">
@@ -196,8 +171,9 @@ if (!isset($_SESSION['credenciais'])) {
                                 <?php echo $hora_humidade;
                                 ?>
                             </p>
-                            <a href="../historico/historicoLog.php?sensor=humidade" class=" btn
-                                btn-primary">Histórico</a>
+                            <form method="get" id="form1">
+  <p><a class="btn btn-primary" href="?sensor=humidade#popUpHistorico">Histórico</a></p>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -218,8 +194,9 @@ if (!isset($_SESSION['credenciais'])) {
                                 <?php echo $hora_fumo;
                                 ?>
                             </p>
-                            <a href="../historico/historicoLog.php?sensor=fumo" class=" btn
-                                btn-primary">Histórico</a>
+                            <form method="get" id="form1">
+  <p><a class="btn btn-primary" href="?sensor=fumo#popUpHistorico">Histórico</a></p>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -240,8 +217,9 @@ if (!isset($_SESSION['credenciais'])) {
                                 <?php echo $hora_gas;
                                 ?>
                             </p>
-                            <a href="../historico/historicoLog.php?sensor=gas" class=" btn
-                                btn-primary">Histórico</a>
+                            <form method="get" id="form1">
+  <p><a class="btn btn-primary" href="?sensor=gas#popUpHistorico">Histórico</a></p>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -262,8 +240,9 @@ if (!isset($_SESSION['credenciais'])) {
                                 <?php echo $hora_rfid;
                                 ?>
                             </p>
-                            <a href="../historico/historicoLog.php?sensor=rfid" class=" btn
-                                btn-primary">Histórico</a>
+                            <form method="get" id="form1">
+  <p><a class="btn btn-primary" href="?sensor=rfid#popUpHistorico">Histórico</a></p>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -277,6 +256,7 @@ if (!isset($_SESSION['credenciais'])) {
         crossorigin="anonymous"></script>
 
     <script src="sidebars.js"></script>
+    <script src="delay.js"></script>
 
     <div></div>
 </body>

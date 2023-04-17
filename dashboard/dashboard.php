@@ -4,7 +4,7 @@ include '../variaveis_sensores_atuadores/variaveis.php';
 include '../login/login.php';
 include 'symbols.php';
 include '../historico\historicoLog.php';
-
+echo "<script>document.getElementById('popUpHistorico').style.display = 'none'</script>";
 if (!isset($_SESSION['credenciais'])) {
     echo "<script>document.getElementById('login-popup').style.display = 'block'</script>";
 }
@@ -37,7 +37,7 @@ if (!isset($_SESSION['credenciais'])) {
     }
 </script> -->
 
-<body>
+<body style="background-image: url(/images/casa.jpeg);">
 
     <main>
         <!-- Menu -->
@@ -52,7 +52,7 @@ if (!isset($_SESSION['credenciais'])) {
             <ul class="list-unstyled ps-0 mb-auto">
                 <li class="mb-1">
                     <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#home-collapse" aria-expanded="true" onclick="delay()">
+                        data-bs-target="#home-collapse" aria-expanded="true">
                         Painel de controlo
                     </button>
                     <div class="collapse show" id="home-collapse">

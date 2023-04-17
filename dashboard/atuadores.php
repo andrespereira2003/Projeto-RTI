@@ -3,6 +3,7 @@ session_start();
 include '../variaveis_sensores_atuadores/variaveis.php';
 include '../login/login.php';
 include 'symbols.php';
+include '../historico\historicoLog.php';
 
 if (!isset($_SESSION['credenciais'])) {
     echo "<script>document.getElementById('login-popup').style.display = 'block'</script>";
@@ -22,6 +23,7 @@ if (!isset($_SESSION['credenciais'])) {
     <link rel="stylesheet" href="sidebars.css">
     <link rel="stylesheet" href="./styleDashboard.css">
     <link rel="stylesheet" href="../login/styleLogin.css">
+    <link rel="stylesheet" href="popUp.css">
 </head>
 
 <!-- <script>
@@ -136,8 +138,9 @@ if (!isset($_SESSION['credenciais'])) {
                                 <?php echo $hora_alarme;
                                 ?>
                             </p>
-                            <a href="../historico/historicoLog.php?atuador=alarme" class=" btn
-                                btn-primary">Histórico</a>
+                            <form method="get" id="form1">
+  <p><a class="btn btn-primary" href="?atuador=alarme#popUpHistorico">Histórico</a></p>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -158,8 +161,9 @@ if (!isset($_SESSION['credenciais'])) {
                                 <?php echo $hora_janela;
                                 ?>
                             </p>
-                            <a href="../historico/historicoLog.php?atuador=janela" class=" btn
-                                btn-primary">Histórico</a>
+                            <form method="get" id="form1">
+  <p><a class="btn btn-primary" href="?atuador=janela#popUpHistorico">Histórico</a></p>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -180,8 +184,9 @@ if (!isset($_SESSION['credenciais'])) {
                                 <?php echo $hora_luz;
                                 ?>
                             </p>
-                            <a href="../historico/historicoLog.php?atuador=luz" class=" btn
-                                btn-primary">Histórico</a>
+                            <form method="get" id="form1">
+  <p><a class="btn btn-primary" href="?atuador=luz#popUpHistorico">Histórico</a></p>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -203,8 +208,9 @@ if (!isset($_SESSION['credenciais'])) {
                                     <?php echo $hora_porta;
                                     ?>
                                 </p>
-                                <a href="../historico/historicoLog.php?atuador=porta" class=" btn
-                                btn-primary">Histórico</a>
+                                <form method="get" id="form1">
+  <p><a class="btn btn-primary" href="?atuador=porta#popUpHistorico">Histórico</a></p>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -225,8 +231,9 @@ if (!isset($_SESSION['credenciais'])) {
                                     <?php echo $hora_ventoinha;
                                     ?>
                                 </p>
-                                <a href="../historico/historicoLog.php?atuador=ventoinha" class=" btn
-                                btn-primary">Histórico</a>
+                                <form method="get" id="form1">
+  <p><a class="btn btn-primary" href="?atuador=ventoinha#popUpHistorico">Histórico</a></p>
+                            </form>
                             </div>
                         </div>
                     </div>
